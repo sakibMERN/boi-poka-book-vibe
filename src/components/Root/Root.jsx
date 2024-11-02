@@ -1,9 +1,14 @@
+import { Outlet } from "react-router-dom";
+import Footer from "../Footer/Footer";
+import NavBar from "../NavBar/NavBar";
 
 
 const Root = () => {
     return (
-        <div>
-            <h1>Hello root</h1>
+        <div className="lg:w-[82%] lg:mx-auto">
+            <NavBar></NavBar>
+            <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };

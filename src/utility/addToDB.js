@@ -37,13 +37,13 @@ const getStoredReadList = () => {
 }
 
 const addToStoredReadList = (id) => {
-    console.log(id);
+    // console.log(id);
     const storedList = getStoredReadList();
     if(storedList.includes(id)){
         console.log(id,"already exist data");
     }
     else{
-        console.log("id will be added");
+        // console.log("id will be added");
         storedList.push(id);
         const storedListStr = JSON.stringify( storedList);
         localStorage.setItem('read-list', storedListStr);
@@ -51,4 +51,4 @@ const addToStoredReadList = (id) => {
     }
 }
 
-export {addToStoredReadList}
+export {addToStoredReadList, getStoredReadList}

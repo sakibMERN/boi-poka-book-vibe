@@ -2,6 +2,7 @@ import React from "react";
 import './BookDetail.css'
 import { useLoaderData, useParams } from "react-router-dom";
 import { addToStoredReadList } from "../../utility/addToDB";
+import { addToStoreWishList } from "../../utility/addToWishList";
 
 const BookDetail = () => {
   const { bookId } = useParams();
@@ -24,8 +25,12 @@ const BookDetail = () => {
   } = book;
 
   const handleMarkAsRead = (id) => {
-    console.log("I want to read");
+    
     addToStoredReadList(id);
+  }
+
+  const handleWishList = (id) => {
+    addToStoreWishList(id);
   }
 
   return (
@@ -100,8 +105,8 @@ const BookDetail = () => {
           </table>
         </div>
         <div className="space-x-4">
-        <button onClick={()=> handleMarkAsRead(bookId)} className="btn bg-white">Mark As Read</button>
-        <button className="btn bg-[#50B1C9] text-white">Add to Wishlist</button>
+        <button onClick={()=> handleMarkAsRead(id)} className="btn bg-white">Mark As Read</button>
+        <button onClick={() => handleWishList(id)} className="btn bg-[#50B1C9] text-white">Add to Wishlist</button>
         </div>
       </div>
     </div>

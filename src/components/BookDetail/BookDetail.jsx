@@ -1,12 +1,13 @@
 import React from "react";
 import './BookDetail.css'
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToStoredReadList } from "../../utility/addToDB";
 
 const BookDetail = () => {
   const { bookId } = useParams();
 
   const id = Number(bookId);
-  console.log(bookId, id);
+//   console.log(bookId, id);
   const data = useLoaderData();
   const book = data.find((book) => book.bookId === id);
   const {
@@ -21,11 +22,16 @@ const BookDetail = () => {
     totalPages,
     yearOfPublishing,
   } = book;
-  console.log(book);
+
+  const handleMarkAsRead = (id) => {
+    console.log("I want to read");
+    addToStoredReadList(id);
+  }
+
   return (
-    <div className="lg:flex gap-12 md:mb-24 ">
+    <div className="lg:flex lg:items-center gap-12 md:mb-24 ">
       <div className="md:w-[573px] bg-[rgba(19,19,19,0.05)] p-[74px] rounded-2xl">
-        <img src={image} className="max-w-[425px] rounded-2xl" alt={bookName} />
+        <img src={image} className="max-w-[425px] rounded-2xl object-cover" alt={bookName} />
       </div>
       <div>
         <h2 className="playfair-font text-[40px] font-bold leading-[53px] mb-4">
@@ -94,8 +100,8 @@ const BookDetail = () => {
           </table>
         </div>
         <div className="space-x-4">
-        <button className="btn bg-white">Read</button>
-        <button className="btn bg-[#50B1C9] text-white">Wishlist</button>
+        <button onClick={()=> handleMarkAsRead(bookId)} className="btn bg-white">Mark As Read</button>
+        <button className="btn bg-[#50B1C9] text-white">Add to Wishlist</button>
         </div>
       </div>
     </div>

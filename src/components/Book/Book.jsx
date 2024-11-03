@@ -24,8 +24,8 @@ const Book = ({ book }) => {
         </figure>
         <div className="">
           <div className="mb-4 space-x-5 ">
-            {tags.map((tag) => (
-              <div className="badge bg-[#23BE0A0D] bg-opacity-5 py-4 px-[7px]">
+            {tags.map((tag, idx) => (
+              <div key={idx} className="badge bg-[#23BE0A0D] bg-opacity-5 py-4 px-[7px]">
                 <p className="text-[#23BE0A] font-medium">{tag}</p>
               </div>
             ))}

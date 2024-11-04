@@ -7,6 +7,8 @@ import Home from './components/Home/Home'
 import Dashboard from './components/Dashboard/Dashboard'
 import BookDetail from './components/BookDetail/BookDetail'
 import ListedBooks from './components/ListedBooks/ListedBooks'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -43,7 +45,7 @@ function App() {
     <>
       
       <RouterProvider router={router}></RouterProvider>
-      
+      <ToastContainer position='top-center' style={{width:'400px',height:'200px'}}></ToastContainer>
       
     </>
   )
